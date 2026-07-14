@@ -310,6 +310,10 @@
   }
   .edu-degree{font-size:18px;font-weight:700;}
   .edu-school{color:var(--muted);font-size:14px;margin-top:4px;}
+  .edu-meta{
+    font-family:'JetBrains Mono',monospace;color:var(--muted);font-size:12px;
+    margin-top:8px;
+  }
 
   /* ===== Contact / Footer ===== */
   footer{
@@ -391,6 +395,15 @@
   .modal-doc-link:hover{border-color:var(--cyan);}
   .modal-doc-link:last-child{margin-bottom:0;}
   .modal-doc-arrow{color:var(--cyan);font-family:'JetBrains Mono',monospace;flex-shrink:0;}
+  .modal-diagram{
+    margin-top:20px;border-top:1px solid var(--line);padding-top:18px;
+  }
+  .modal-diagram .schematic-label{
+    font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);
+    letter-spacing:0.08em;text-transform:uppercase;
+    margin-bottom:10px;display:flex;justify-content:space-between;
+  }
+  .modal-diagram svg{width:100%;height:auto;display:block;}
 
   /* ===== Profile photo & logo ===== */
   .profile-photo{
@@ -532,19 +545,15 @@
           </div>
         </div>
         <p>
-          Hello! I'm <strong>Robin (Mostafa Al Hossain)</strong>, an <strong>Electrical Protection Engineer</strong>
-          currently working at <strong>Reverie Power &amp; Automation Engineering Ltd</strong>. I am passionate
-          about power system protection, relay testing, and substation automation, with a strong focus on
-          practical learning and continuous improvement.
+          <strong>Mostafa Al Hossain</strong>, known professionally as <strong>Robin</strong>, works as a
+          <strong>Protection Engineer</strong> at <strong>Reverie Power &amp; Automation Engineering Ltd</strong>.
+          His work centers on the protection schemes that keep transformers, feeders and buses
+          stable when faults occur — from setting calculation through to commissioning.
         </p>
         <p>
-          Alongside my professional career, I am pursuing a <strong>B.Sc. in Electrical and Electronic
-          Engineering (EEE)</strong> at the <strong>University of Scholars</strong>.
-        </p>
-        <p>
-          This website reflects my engineering journey, where I share protection engineering notes,
-          practical experiences, and technical resources to help students and professionals grow in the
-          field of electrical protection.
+          He holds a <strong>BSc in Electrical &amp; Electronic Engineering (EEE)</strong> from
+          <strong>University of Scholars</strong>, and continues to build depth in numerical relay
+          configuration and power system protection studies.
         </p>
       </div>
     </div>
@@ -561,7 +570,7 @@
         <div class="category-code">EXP</div>
         <div class="category-name">Experience</div>
         <div class="category-count">2 companies</div>
-        <div class="category-arrow">Open folder →</div>
+        <div class="category-arrow">View Details →</div>
       </div>
     </div>
 
@@ -574,13 +583,13 @@
           <div class="category-code">CURRENT</div>
           <div class="category-name">Reverie Power &amp; Automation Engineering Ltd</div>
           <div class="category-count">2 folders</div>
-          <div class="category-arrow">Open folder →</div>
+          <div class="category-arrow">View Details →</div>
         </div>
         <div class="category-card" id="exp5starFolder">
           <div class="category-code">PREVIOUS</div>
           <div class="category-name">5Star Digitech Industries Ltd</div>
           <div class="category-count">Details</div>
-          <div class="category-arrow">Open folder →</div>
+          <div class="category-arrow">View Details →</div>
         </div>
       </div>
     </div>
@@ -594,12 +603,12 @@
         <div class="category-card" id="expCoreFolder">
           <div class="category-code">CC</div>
           <div class="category-name">Core Components</div>
-          <div class="category-arrow">Open folder →</div>
+          <div class="category-arrow">View Details →</div>
         </div>
         <div class="category-card" id="expToolsFolder">
           <div class="category-code">TI</div>
           <div class="category-name">Testing Instruments Handled</div>
-          <div class="category-arrow">Open folder →</div>
+          <div class="category-arrow">View Details →</div>
         </div>
       </div>
     </div>
@@ -667,7 +676,7 @@
         <div class="category-code">PRJ</div>
         <div class="category-name">Projects</div>
         <div class="category-count" id="countProjects">0 items</div>
-        <div class="category-arrow">Open folder →</div>
+        <div class="category-arrow">View Details →</div>
       </div>
     </div>
     <div class="subcategory-view" id="projectsView">
@@ -686,25 +695,25 @@
         <div class="category-code">LP</div>
         <div class="category-name">Line Protection</div>
         <div class="category-count" id="countLine">0 items</div>
-        <div class="category-arrow">Open folder →</div>
+        <div class="category-arrow">View Details →</div>
       </div>
       <div class="category-card" data-cat="transformer">
         <div class="category-code">TP</div>
         <div class="category-name">Transformer Protection</div>
         <div class="category-count" id="countTransformer">6 items</div>
-        <div class="category-arrow">Open folder →</div>
+        <div class="category-arrow">View Details →</div>
       </div>
       <div class="category-card" data-cat="substation">
         <div class="category-code">STC</div>
         <div class="category-name">Substation Testing &amp; Commissioning</div>
         <div class="category-count" id="countSubstation">0 items</div>
-        <div class="category-arrow">Open folder →</div>
+        <div class="category-arrow">View Details →</div>
       </div>
       <div class="category-card" data-cat="protectioncontrol">
         <div class="category-code">PCS</div>
         <div class="category-name">Protection &amp; Control Scheme</div>
         <div class="category-count" id="countProtectionControl">0 items</div>
-        <div class="category-arrow">Open folder →</div>
+        <div class="category-arrow">View Details →</div>
       </div>
     </div>
 
@@ -722,14 +731,16 @@
     <div class="edu-list" data-reveal>
       <div class="edu-card">
         <div>
-          <div class="edu-degree">Diploma in Engineering — Electrical Department</div>
-          <div class="edu-school">Khulna Polytechnic Institute</div>
+          <div class="edu-degree">BSc in Engineering</div>
+          <div class="edu-school">Electrical and Electronics Engineering (EEE) &middot; University of Scholars</div>
+          <div class="edu-meta">CGPA: 3.75 &middot; 2023–2026</div>
         </div>
       </div>
       <div class="edu-card">
         <div>
-          <div class="edu-degree">BSc in Electrical &amp; Electronic Engineering (EEE)</div>
-          <div class="edu-school">University of Scholars</div>
+          <div class="edu-degree">Diploma in Engineering</div>
+          <div class="edu-school">Electrical Department &middot; Khulna Polytechnic Institute</div>
+          <div class="edu-meta">CGPA: 3.96 &middot; 2016–2020</div>
         </div>
       </div>
     </div>
@@ -776,6 +787,7 @@
     <div class="modal-code" id="modalCode"></div>
     <div class="modal-name" id="modalName"></div>
     <div class="modal-desc" id="modalDesc"></div>
+    <div class="modal-diagram" id="modalDiagram"></div>
     <div class="modal-docs" id="modalDocs"></div>
   </div>
 </div>
@@ -783,117 +795,254 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  // ---------------------------------------------------------
+  // Animated diagram generators — same visual language as the
+  // hero 87T schematic (dashed current flow + pulsing relay box),
+  // reused across every protection function with a matching layout.
+  // ---------------------------------------------------------
+  function diagramDifferential(code, label) {
+    return `
+      <div class="schematic-label"><span>Scheme ${code}</span><span>Status: Stable</span></div>
+      <svg viewBox="0 0 700 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="90" cy="55" r="18" stroke="#4FD1C5" stroke-width="2"/>
+        <text x="90" y="60" text-anchor="middle" fill="#4FD1C5" font-size="11" font-family="JetBrains Mono">CT1</text>
+        <rect x="255" y="35" width="100" height="40" rx="4" stroke="#8A97A5" stroke-width="2"/>
+        <text x="305" y="94" text-anchor="middle" fill="#8A97A5" font-size="10.5" font-family="JetBrains Mono">${label}</text>
+        <circle cx="520" cy="55" r="18" stroke="#4FD1C5" stroke-width="2"/>
+        <text x="520" y="60" text-anchor="middle" fill="#4FD1C5" font-size="11" font-family="JetBrains Mono">CT2</text>
+        <line x1="15" y1="55" x2="72" y2="55" stroke="#223040" stroke-width="2"/>
+        <line x1="15" y1="55" x2="72" y2="55" class="flow" stroke="#E8A33D" stroke-width="2"/>
+        <line x1="108" y1="55" x2="253" y2="55" stroke="#223040" stroke-width="2"/>
+        <line x1="108" y1="55" x2="253" y2="55" class="flow" stroke="#E8A33D" stroke-width="2"/>
+        <line x1="357" y1="55" x2="502" y2="55" stroke="#223040" stroke-width="2"/>
+        <line x1="357" y1="55" x2="502" y2="55" class="flow" stroke="#E8A33D" stroke-width="2"/>
+        <line x1="538" y1="55" x2="600" y2="55" stroke="#223040" stroke-width="2"/>
+        <line x1="538" y1="55" x2="600" y2="55" class="flow" stroke="#E8A33D" stroke-width="2"/>
+        <line x1="90" y1="73" x2="90" y2="128" stroke="#223040" stroke-width="2"/>
+        <line x1="520" y1="73" x2="520" y2="128" stroke="#223040" stroke-width="2"/>
+        <line x1="90" y1="128" x2="275" y2="128" stroke="#223040" stroke-width="2"/>
+        <line x1="520" y1="128" x2="335" y2="128" stroke="#223040" stroke-width="2"/>
+        <rect x="275" y="110" width="60" height="36" rx="3" stroke="#E8A33D" stroke-width="2" class="pulse-node"/>
+        <text x="305" y="132" text-anchor="middle" fill="#E8A33D" font-size="12" font-family="JetBrains Mono" font-weight="700">${code}</text>
+      </svg>
+    `;
+  }
+
+  function diagramOvercurrent(code, label) {
+    return `
+      <div class="schematic-label"><span>Scheme ${code}</span><span>Status: Monitoring</span></div>
+      <svg viewBox="0 0 700 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80" cy="50" r="18" stroke="#4FD1C5" stroke-width="2"/>
+        <text x="80" y="55" text-anchor="middle" fill="#4FD1C5" font-size="11" font-family="JetBrains Mono">CT</text>
+        <line x1="15" y1="50" x2="62" y2="50" stroke="#223040" stroke-width="2"/>
+        <line x1="15" y1="50" x2="62" y2="50" class="flow" stroke="#E8A33D" stroke-width="2"/>
+        <line x1="98" y1="50" x2="600" y2="50" stroke="#223040" stroke-width="2"/>
+        <line x1="98" y1="50" x2="600" y2="50" class="flow" stroke="#E8A33D" stroke-width="2"/>
+        <text x="350" y="30" text-anchor="middle" fill="#8A97A5" font-size="10.5" font-family="JetBrains Mono">${label}</text>
+        <line x1="80" y1="68" x2="80" y2="105" stroke="#223040" stroke-width="2"/>
+        <line x1="80" y1="105" x2="270" y2="105" stroke="#223040" stroke-width="2"/>
+        <rect x="270" y="87" width="60" height="36" rx="3" stroke="#E8A33D" stroke-width="2" class="pulse-node"/>
+        <text x="300" y="109" text-anchor="middle" fill="#E8A33D" font-size="12" font-family="JetBrains Mono" font-weight="700">${code}</text>
+        <line x1="600" y1="35" x2="600" y2="65" stroke="#8A97A5" stroke-width="4"/>
+        <text x="600" y="90" text-anchor="middle" fill="#8A97A5" font-size="10" font-family="JetBrains Mono">CB</text>
+      </svg>
+    `;
+  }
+
+  function diagramZone(code, label) {
+    return `
+      <div class="schematic-label"><span>Scheme ${code}</span><span>Status: Armed</span></div>
+      <svg viewBox="0 0 700 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="20" y1="130" x2="650" y2="130" stroke="#223040" stroke-width="2"/>
+        <line x1="20" y1="130" x2="650" y2="130" class="flow" stroke="#E8A33D" stroke-width="2"/>
+        <circle cx="60" cy="130" r="10" stroke="#4FD1C5" stroke-width="2"/>
+        <text x="60" y="150" text-anchor="middle" fill="#4FD1C5" font-size="9.5" font-family="JetBrains Mono">RELAY</text>
+        <circle cx="60" cy="130" r="150" stroke="#2E6F63" stroke-width="1.5" fill="none" opacity="0.6"/>
+        <circle cx="60" cy="130" r="280" stroke="#2E6F63" stroke-width="1.5" fill="none" opacity="0.4"/>
+        <circle cx="60" cy="130" r="410" stroke="#2E6F63" stroke-width="1.5" fill="none" opacity="0.25"/>
+        <text x="140" y="60" fill="#4FD1C5" font-size="9.5" font-family="JetBrains Mono">ZONE 1</text>
+        <text x="260" y="45" fill="#4FD1C5" font-size="9.5" font-family="JetBrains Mono">ZONE 2</text>
+        <text x="390" y="30" fill="#4FD1C5" font-size="9.5" font-family="JetBrains Mono">ZONE 3</text>
+        <circle cx="300" cy="130" r="6" fill="#E8A33D" class="pulse-node"/>
+        <text x="300" y="150" text-anchor="middle" fill="#8A97A5" font-size="10" font-family="JetBrains Mono">${label}</text>
+      </svg>
+    `;
+  }
+
+  function diagramSequence(code, label) {
+    return `
+      <div class="schematic-label"><span>Scheme ${code}</span><span>Status: Monitoring</span></div>
+      <svg viewBox="0 0 700 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="180" y="20" text-anchor="middle" fill="#8A97A5" font-size="10.5" font-family="JetBrains Mono">${label}</text>
+        <rect x="120" y="50" width="40" height="70" fill="none" stroke="#4FD1C5" stroke-width="2" class="pulse-node"/>
+        <text x="140" y="135" text-anchor="middle" fill="#4FD1C5" font-size="10" font-family="JetBrains Mono">R</text>
+        <rect x="200" y="60" width="40" height="60" fill="none" stroke="#4FD1C5" stroke-width="2" class="pulse-node"/>
+        <text x="220" y="135" text-anchor="middle" fill="#4FD1C5" font-size="10" font-family="JetBrains Mono">Y</text>
+        <rect x="280" y="35" width="40" height="85" fill="none" stroke="#E8A33D" stroke-width="2" class="pulse-node"/>
+        <text x="300" y="135" text-anchor="middle" fill="#E8A33D" font-size="10" font-family="JetBrains Mono">B</text>
+        <line x1="400" y1="120" x2="620" y2="120" stroke="#223040" stroke-width="2"/>
+        <line x1="400" y1="120" x2="620" y2="120" class="flow" stroke="#E8A33D" stroke-width="2"/>
+        <rect x="420" y="60" width="60" height="36" rx="3" stroke="#E8A33D" stroke-width="2" class="pulse-node"/>
+        <text x="450" y="82" text-anchor="middle" fill="#E8A33D" font-size="12" font-family="JetBrains Mono" font-weight="700">${code}</text>
+      </svg>
+    `;
+  }
+
+  function diagramBreaker(code, label) {
+    return `
+      <div class="schematic-label"><span>Scheme ${code}</span><span>Status: Standby</span></div>
+      <svg viewBox="0 0 700 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="20" y1="60" x2="280" y2="60" stroke="#223040" stroke-width="2"/>
+        <line x1="20" y1="60" x2="280" y2="60" class="flow" stroke="#E8A33D" stroke-width="2"/>
+        <rect x="280" y="42" width="36" height="36" rx="3" stroke="#8A97A5" stroke-width="2"/>
+        <text x="298" y="100" text-anchor="middle" fill="#8A97A5" font-size="10" font-family="JetBrains Mono">CB</text>
+        <line x1="316" y1="60" x2="580" y2="60" stroke="#223040" stroke-width="2"/>
+        <line x1="316" y1="60" x2="580" y2="60" class="flow" stroke="#E8A33D" stroke-width="2"/>
+        <text x="350" y="30" text-anchor="middle" fill="#8A97A5" font-size="10.5" font-family="JetBrains Mono">${label}</text>
+        <rect x="300" y="105" width="60" height="34" rx="3" stroke="#E8A33D" stroke-width="2" class="pulse-node"/>
+        <text x="330" y="126" text-anchor="middle" fill="#E8A33D" font-size="11" font-family="JetBrains Mono" font-weight="700">${code}</text>
+      </svg>
+    `;
+  }
+
+  const diagramGenerators = {
+    differential: diagramDifferential,
+    overcurrent: diagramOvercurrent,
+    zone: diagramZone,
+    sequence: diagramSequence,
+    breaker: diagramBreaker
+  };
+
   const deviceDetails = {
     "87T": {
       code: "87T",
+      diagram: { type: "differential", label: "POWER TRANSFORMER" },
       name: "Transformer Differential Protection",
       sub: "Percentage bias, harmonic restraint, CT compensation",
       desc: "Compares current entering and leaving the transformer. Under normal load the two balance out; an internal fault breaks that balance and trips the relay. Uses percentage-bias characteristics to stay stable through external faults and CT saturation, plus 2nd-harmonic restraint to ride through inrush and 5th-harmonic restraint for overexcitation."
     },
     "REF": {
       code: "REF",
+      diagram: { type: "differential", label: "TRANSFORMER WINDING" },
       name: "Transformer REF Protection",
       sub: "Sensitive winding earth-fault detection",
       desc: "A high-sensitivity scheme limited to one winding, built to catch earth faults close to the neutral that differential protection alone may not see clearly. Commonly applied alongside 87T on transformer windings for extra sensitivity."
     },
     "49": {
       code: "49",
+      diagram: { type: "sequence", label: "THERMAL LOADING" },
       name: "Thermal Overload Protection",
       sub: "Winding hot-spot & top-oil temperature-based tripping",
       desc: "Models the transformer's thermal state from load current (and often measured oil/winding temperature) to warn or trip before sustained overload causes insulation damage — protecting the asset's working life rather than reacting to a fault."
     },
     "24": {
       code: "24",
+      diagram: { type: "sequence", label: "OVER-EXCITATION (V/Hz)" },
       name: "Over Flux Protection",
       sub: "Over-excitation protection (V/Hz)",
       desc: "Trips on excessive volts-per-hertz, which happens when voltage rises or frequency drops. Excess flux drives the core into saturation and causes stray heating, so this function protects the transformer during over-excitation conditions."
     },
     "46": {
       code: "46",
+      diagram: { type: "sequence", label: "NEGATIVE SEQUENCE" },
       name: "Negative Sequence Protection",
       sub: "Detects unbalanced loading and phase-related faults",
       desc: "Monitors negative-sequence current, which appears during unbalanced loading, single-phasing, or certain phase faults. Picks up conditions that a simple overcurrent element can miss because total current may still look normal."
     },
     "OCEF": {
       code: "50/51 &amp; N",
+      diagram: { type: "overcurrent", label: "TRANSFORMER BACKUP" },
       name: "Overcurrent &amp; Earth Fault Protection",
       sub: "Phase overcurrent and earth-fault backup protection",
       desc: "Combines phase overcurrent (50/51) with earth-fault overcurrent (50N/51N) as backup protection for the transformer — instantaneous elements for high-current faults, time-graded elements for coordination with adjacent devices."
     },
     "L87": {
       code: "87L",
+      diagram: { type: "differential", label: "PROTECTED LINE" },
       name: "Line Differential Protection",
       sub: "Unit protection comparing current at both line ends",
       desc: "Compares current measured at each end of the line over a communication channel. Any difference beyond a set threshold means current is leaving the protected zone through a fault, so the relay trips fast — without needing time-graded coordination with other devices."
     },
     "L21": {
       code: "21",
+      diagram: { type: "zone", label: "TRANSMISSION LINE" },
       name: "Line Distance Protection",
       sub: "Impedance-based zoned protection for transmission lines",
       desc: "Measures voltage and current to estimate impedance, and therefore distance, to a fault. Reach is split into zones (Zone 1, 2, 3) with different trip times, giving fast primary protection plus graded backup without depending on current magnitude alone."
     },
     "SOTF": {
       code: "SOTF",
+      diagram: { type: "breaker", label: "LINE ENERGIZED" },
       name: "Switch-on-to-Fault Protection",
       sub: "High-speed trip when closing onto an existing fault",
       desc: "Provides instantaneous, sensitive tripping for a short window right after a breaker closes — covering the case where the line was already faulted (e.g. an earth switch left closed) before energizing, when normal distance protection may be too slow or insensitive."
     },
     "PSB": {
       code: "68",
+      diagram: { type: "zone", label: "POWER SWING TRAJECTORY" },
       name: "Power Swing Block Protection",
       sub: "Blocks distance protection during stable power swings",
       desc: "Detects the slower impedance movement of a power swing (as opposed to a fault) and blocks distance elements from tripping during a stable swing, while still allowing tripping for genuine faults or controlled out-of-step tripping when needed."
     },
     "VTFF": {
       code: "60",
+      diagram: { type: "breaker", label: "VT SIGNAL LOST" },
       name: "VT Fuse Failure Protection",
       sub: "Detects loss of voltage signal from a blown VT fuse/MCB",
       desc: "Detects when a VT fuse or MCB has failed, which would otherwise present a false low-voltage signal to distance and directional elements. Alarms and blocks the affected voltage-dependent functions so they don't maloperate on a signal problem rather than a real fault."
     },
     "L5051": {
       code: "50/51",
+      diagram: { type: "overcurrent", label: "PROTECTED LINE" },
       name: "Overcurrent Protection",
       sub: "Instantaneous &amp; time-graded phase fault backup",
       desc: "50 is instantaneous overcurrent — trips immediately above a set current with no intentional delay. 51 is time-overcurrent — trips with a delay that shortens as fault current increases, providing backup protection graded against adjacent devices."
     },
     "L50N51N": {
       code: "50N/51N",
+      diagram: { type: "overcurrent", label: "EARTH FAULT PATH" },
       name: "Earth Fault Protection",
       sub: "Instantaneous &amp; time-graded earth fault detection",
       desc: "The earth-fault counterpart of 50/51, measuring residual (zero-sequence) current to detect faults involving ground. More sensitive than phase overcurrent elements since healthy load current doesn't normally produce a residual component."
     },
     "L79": {
       code: "79",
+      diagram: { type: "breaker", label: "RECLOSE SEQUENCE" },
       name: "Auto-Reclose",
       sub: "Automatic reclosing after a transient line trip",
       desc: "After protection trips the breaker for a fault, auto-reclose closes it again automatically after a set dead time — restoring supply immediately if the fault was transient (e.g. lightning-induced flashover), which covers the majority of overhead line faults."
     },
     "BCD": {
       code: "46BC",
+      diagram: { type: "sequence", label: "BROKEN CONDUCTOR" },
       name: "Broken Conductor Protection",
       sub: "Detects open-phase / series faults from a broken line",
       desc: "Looks at the ratio of negative- to positive-sequence current to detect an open or broken conductor. A broken conductor often doesn't raise total current enough to trip a standard overcurrent element, so this ratio-based check catches what overcurrent protection can miss."
     },
     "CS85": {
       code: "85",
+      diagram: { type: "breaker", label: "PILOT CHANNEL" },
       name: "Carrier Scheme Protection",
       sub: "Pilot/teleprotection signaling between line ends",
       desc: "Uses a communication channel (PLCC, fiber, or microwave) to exchange trip/permission signals between the two ends of a line, letting distance or directional protection at both ends trip together and selectively for faults anywhere along the line."
     },
     "STUB": {
       code: "STUB",
+      diagram: { type: "overcurrent", label: "STUB SECTION" },
       name: "Stub Protection",
       sub: "Instantaneous protection for the isolated stub section",
       desc: "Applied in breaker-and-a-half or ring-bus arrangements: when the line-side isolator is open, the short 'stub' between the breaker and the open isolator has no line protection covering it, so a simple instantaneous overcurrent element is enabled to cover that section."
     },
     "L59": {
       code: "59",
+      diagram: { type: "sequence", label: "OVERVOLTAGE" },
       name: "Over Voltage Protection",
       sub: "Trips or alarms on excessive line voltage",
       desc: "Trips or alarms when line voltage rises above a set threshold, protecting connected equipment from sustained overvoltage conditions such as those caused by load rejection or system disturbances."
     },
     "L27": {
       code: "27",
+      diagram: { type: "sequence", label: "UNDERVOLTAGE" },
       name: "Under Voltage Protection",
       sub: "Trips or alarms on depressed line voltage",
       desc: "Trips or alarms when line voltage falls below a set threshold, often used to detect abnormal system conditions or to supervise other protection and control functions that depend on healthy voltage."
@@ -1023,6 +1172,7 @@
   const modalCode = document.getElementById('modalCode');
   const modalName = document.getElementById('modalName');
   const modalDesc = document.getElementById('modalDesc');
+  const modalDiagram = document.getElementById('modalDiagram');
   const modalDocs = document.getElementById('modalDocs');
 
   let allDocuments = [];
@@ -1036,6 +1186,12 @@
         modalCode.innerHTML = info.code;
         modalName.innerHTML = info.name;
         modalDesc.textContent = info.desc;
+
+        if (info.diagram && diagramGenerators[info.diagram.type]) {
+          modalDiagram.innerHTML = diagramGenerators[info.diagram.type](info.code.replace(/&amp;/g, '&'), info.diagram.label);
+        } else {
+          modalDiagram.innerHTML = '';
+        }
 
         const relatedDocs = allDocuments.filter(d => d.category === key);
         if (relatedDocs.length === 0) {
