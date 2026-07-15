@@ -19,6 +19,9 @@
     --line: #223040;
     --amber: #E8A33D;
     --cyan: #4FD1C5;
+    --violet: #C084FC;
+    --emerald: #34D399;
+    --rose: #FB7185;
     --text: #ECEEF0;
     --muted: #8A97A5;
   }
@@ -103,7 +106,10 @@
     letter-spacing:-0.02em;
     max-width:820px;
   }
-  h1 .accent{color:var(--cyan);}
+  h1 .accent{
+    background:linear-gradient(90deg, var(--amber), var(--cyan));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
   .role-line{
     font-family:'JetBrains Mono',monospace;
     font-size:18px;
@@ -126,12 +132,12 @@
     transition:all 0.2s;
   }
   .btn-primary{
-    background:var(--amber);
+    background:linear-gradient(135deg, #f0b657, var(--amber));
     color:#0B0F14;
     border-color:var(--amber);
     font-weight:700;
   }
-  .btn-primary:hover{background:#f3b657;}
+  .btn-primary:hover{background:linear-gradient(135deg, #f6c576, #f0b657);}
   .btn-ghost{color:var(--text);}
   .btn-ghost:hover{border-color:var(--cyan);color:var(--cyan);}
 
@@ -214,13 +220,36 @@
   /* ===== Expertise category folders ===== */
   .category-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
   .category-card{
+    position:relative;overflow:hidden;
     border:1px solid var(--line);background:var(--panel);
     padding:36px 30px;border-radius:6px;cursor:pointer;
     transition:border-color 0.2s, transform 0.2s;
   }
-  .category-card:hover{border-color:var(--amber);transform:translateY(-2px);}
+  .category-card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:var(--cyan);opacity:0.9;
+  }
+  .category-card:hover{border-color:var(--cyan);transform:translateY(-3px);}
+  .category-card .category-code{color:var(--cyan);}
+  .category-card .category-arrow{color:var(--cyan);}
+
+  .category-card[data-cat="transformer"]::before{background:var(--amber);}
+  .category-card[data-cat="transformer"]:hover{border-color:var(--amber);}
+  .category-card[data-cat="transformer"] .category-code{color:var(--amber);}
+  .category-card[data-cat="transformer"] .category-arrow{color:var(--amber);}
+
+  .category-card[data-cat="substation"]::before{background:var(--violet);}
+  .category-card[data-cat="substation"]:hover{border-color:var(--violet);}
+  .category-card[data-cat="substation"] .category-code{color:var(--violet);}
+  .category-card[data-cat="substation"] .category-arrow{color:var(--violet);}
+
+  .category-card[data-cat="protectioncontrol"]::before{background:var(--emerald);}
+  .category-card[data-cat="protectioncontrol"]:hover{border-color:var(--emerald);}
+  .category-card[data-cat="protectioncontrol"] .category-code{color:var(--emerald);}
+  .category-card[data-cat="protectioncontrol"] .category-arrow{color:var(--emerald);}
+
   .category-code{
-    font-family:'JetBrains Mono',monospace;color:var(--amber);
+    font-family:'JetBrains Mono',monospace;
     font-size:13px;letter-spacing:0.08em;margin-bottom:12px;
   }
   .category-name{font-size:23px;font-weight:700;}
@@ -228,7 +257,7 @@
     font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);
     margin-top:10px;
   }
-  .category-arrow{color:var(--cyan);font-family:'JetBrains Mono',monospace;font-size:13px;margin-top:18px;}
+  .category-arrow{font-family:'JetBrains Mono',monospace;font-size:13px;margin-top:18px;}
 
   .subcategory-view{display:none;}
   .subcategory-view.open{display:block;}
@@ -236,6 +265,38 @@
     font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--cyan);
     cursor:pointer;display:inline-block;margin-bottom:22px;
   }
+  .subcategory-view[data-cat="transformer"] .subcat-back{color:var(--amber);}
+  .subcategory-view[data-cat="substation"] .subcat-back{color:var(--violet);}
+  .subcategory-view[data-cat="protectioncontrol"] .subcat-back{color:var(--emerald);}
+
+  .subcategory-view[data-cat="line"] .device-code{color:var(--cyan);}
+  .subcategory-view[data-cat="transformer"] .device-code{color:var(--amber);}
+  .subcategory-view[data-cat="substation"] .device-code{color:var(--violet);}
+  .subcategory-view[data-cat="protectioncontrol"] .device-code{color:var(--emerald);}
+
+  /* Per-function color theme, based on protection type (differential/overcurrent/zone/sequence/breaker) */
+  .device-card{position:relative;overflow:hidden;}
+  .device-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--line);}
+  .device-card[data-type="differential"]::before{background:var(--cyan);}
+  .device-card[data-type="differential"] .device-code{color:var(--cyan);}
+  .device-card[data-type="differential"]:hover{border-color:var(--cyan);}
+
+  .device-card[data-type="overcurrent"]::before{background:var(--amber);}
+  .device-card[data-type="overcurrent"] .device-code{color:var(--amber);}
+  .device-card[data-type="overcurrent"]:hover{border-color:var(--amber);}
+
+  .device-card[data-type="zone"]::before{background:var(--violet);}
+  .device-card[data-type="zone"] .device-code{color:var(--violet);}
+  .device-card[data-type="zone"]:hover{border-color:var(--violet);}
+
+  .device-card[data-type="sequence"]::before{background:var(--emerald);}
+  .device-card[data-type="sequence"] .device-code{color:var(--emerald);}
+  .device-card[data-type="sequence"]:hover{border-color:var(--emerald);}
+
+  .device-card[data-type="breaker"]::before{background:var(--rose);}
+  .device-card[data-type="breaker"] .device-code{color:var(--rose);}
+  .device-card[data-type="breaker"]:hover{border-color:var(--rose);}
+
   .subcat-back:hover{color:var(--amber);}
   .subcat-title{font-size:22px;font-weight:700;margin-bottom:22px;}
   .subcat-empty{
@@ -410,6 +471,7 @@
     width:96px;height:96px;border-radius:50%;
     object-fit:cover;border:2px solid var(--amber);
     display:block;
+    box-shadow:0 0 0 4px rgba(232,163,61,0.12), 0 0 24px rgba(79,209,197,0.18);
   }
   .profile-photo-wrap{
     width:96px;height:96px;border-radius:50%;
@@ -481,10 +543,6 @@
       transformers, feeders and buses — from relay setting calculation to
       commissioning and fault analysis.
     </p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn btn-primary">Get in touch</a>
-      <a href="#experience" class="btn btn-ghost">View experience</a>
-    </div>
 
     <!-- Signature element: animated transformer differential protection one-line diagram -->
     <div class="schematic" data-reveal>
@@ -750,8 +808,18 @@
       <span class="section-num mono">06</span>
       <h2 class="section-title">Documents</h2>
     </div>
-    <div id="docList" class="doc-list" data-reveal>
-      <p class="doc-empty">Loading documents…</p>
+    <div class="category-grid single-col" id="docsFolderGrid" data-reveal>
+      <div class="category-card" id="docsFolder">
+        <div class="category-code">DOC</div>
+        <div class="category-name">Documents</div>
+        <div class="category-count" id="docsCount">0 items</div>
+        <div class="category-arrow">View Details →</div>
+      </div>
+    </div>
+    <div class="subcategory-view" id="docsView">
+      <span class="subcat-back" id="docsBack">← Back to Documents</span>
+      <h3 class="subcat-title">Documents</h3>
+      <div id="docList" class="doc-list"></div>
     </div>
   </section>
 
@@ -956,6 +1024,13 @@
       sub: "Phase overcurrent and earth-fault backup protection",
       desc: "Combines phase overcurrent (50/51) with earth-fault overcurrent (50N/51N) as backup protection for the transformer — instantaneous elements for high-current faults, time-graded elements for coordination with adjacent devices."
     },
+    "SEF": {
+      code: "SEF",
+      diagram: { type: "overcurrent", label: "TRANSFORMER NEUTRAL" },
+      name: "Sensitive Earth Fault Protection",
+      sub: "High-sensitivity detection of low-magnitude earth faults",
+      desc: "A highly sensitive earth-fault element set well below normal earth-fault pickup levels, used to catch very low-magnitude earth faults — such as those through high-impedance paths — that standard overcurrent or earth-fault elements are too coarse to detect."
+    },
     "L87": {
       code: "87L",
       diagram: { type: "differential", label: "PROTECTED LINE" },
@@ -1056,7 +1131,7 @@
     },
     transformer: {
       name: "Transformer Protection",
-      items: ["87T", "REF", "49", "24", "46", "OCEF"]
+      items: ["87T", "REF", "49", "24", "46", "OCEF", "SEF"]
     },
     substation: {
       name: "Substation Testing & Commissioning",
@@ -1138,6 +1213,7 @@
   function openCategory(catKey) {
     const cat = categories[catKey];
     if (!cat) return;
+    subcategoryView.setAttribute('data-cat', catKey);
     subcatTitle.textContent = cat.name;
     if (cat.items.length === 0) {
       subcatGrid.innerHTML = '<p class="subcat-empty">No items added yet in this folder.</p>';
@@ -1145,8 +1221,9 @@
       subcatGrid.innerHTML = cat.items.map(key => {
         const info = deviceDetails[key];
         if (!info) return '';
+        const type = info.diagram ? info.diagram.type : '';
         return `
-          <div class="device-card" data-key="${key}">
+          <div class="device-card" data-key="${key}" data-type="${type}">
             <div class="device-code">${info.code}</div>
             <div class="device-name">${info.name}</div>
             <div class="device-sub">${info.sub}</div>
@@ -1226,6 +1303,22 @@
     .then(res => res.json())
     .then(docs => { allDocuments = docs; renderDocs(docs); })
     .catch(() => { allDocuments = []; renderDocs([]); });
+
+  fetch('documents.json')
+    .then(res => res.json())
+    .then(docs => { allDocuments = docs; renderDocs(docs); document.getElementById('docsCount').textContent = (docs ? docs.length : 0) + ' items'; })
+    .catch(() => { allDocuments = []; renderDocs([]); document.getElementById('docsCount').textContent = '0 items'; });
+
+  const docsFolderGrid = document.getElementById('docsFolderGrid');
+  const docsView = document.getElementById('docsView');
+  document.getElementById('docsFolder').addEventListener('click', () => {
+    docsFolderGrid.style.display = 'none';
+    docsView.classList.add('open');
+  });
+  document.getElementById('docsBack').addEventListener('click', () => {
+    docsView.classList.remove('open');
+    docsFolderGrid.style.display = 'grid';
+  });
 
   function renderDocs(docs){
     const list = document.getElementById('docList');
